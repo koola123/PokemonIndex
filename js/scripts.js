@@ -1,4 +1,3 @@
-alert('Hello world');
-
-let favoriteFood = 'Barbecued Steak';
-document.write(favoriteFood);
+let pokemonList = [{name: "Bulbasaur", height: 0.7, type: ['grass', 'poison']}, 
+                   {name: "Nidoking", height: 1.4, type: ['ground', 'poison']}, 
+                   {name: "Onix", height: 8.8, type: ['rock', 'ground']}];
