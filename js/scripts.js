@@ -11,8 +11,8 @@ sizing the height of each pokemon and put code into loop for printing
 the biggest pokemon via definition of height */
 
 for (let i = 0; i <pokemonList.length; i++) {
-  if (pokemonList[i].height >0.5 && pokemonList[i].height < 10 ) {
-    document.write("<p>" + pokemonList[i].name +
-    ' (height): ' +  pokemonList[i].height + ' - Wow, that\'s big! ' + "</p>");
-  }
+  if (pokemonList[i].height >0.5) {
+   console.log(pokemonList[i]);
+
+document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') - Wow, that\'s big! ' + "</p>"); }
 }
