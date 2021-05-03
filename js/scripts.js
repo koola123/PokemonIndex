@@ -13,7 +13,7 @@ for (let i=0; i<pokemonList.length; i++) {
       document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + "</p>");
       console.log(pokemonList[i]);
     }else {
-      document.write("<p>" + pokemonList[i].name + " (height: 8.8)" + " - Wow, that's big!" + "</p>");
+      document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + " - Wow, that's big!" + "</p>");
       console.log(pokemonList[i]);
     }
   }
