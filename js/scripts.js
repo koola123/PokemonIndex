@@ -8,7 +8,7 @@ let pokemonList = [
 
 // Loop iterates over each item and prints biggest pokemon to the console
 
-for (let i=0; i<pokemonList.length; i++) {
+/* for (let i=0; i<pokemonList.length; i++) {
     if (pokemonList[i].height <8.8) {
       document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + "</p>");
       console.log(pokemonList[i]);
@@ -16,4 +16,10 @@ for (let i=0; i<pokemonList.length; i++) {
       document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + " - Wow, that's big!" + "</p>");
       console.log(pokemonList[i]);
     }
+  } */
+
+// My Pokemon List as a forEach() Function:
+  function myPokemonList(pokemon) {
+    console.log(pokemon.name + ',' + ' height:' + pokemon.height + ', ' + 'type: ' + pokemon.type);
   }
+  pokemonList.forEach(myPokemonList);
