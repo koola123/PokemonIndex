@@ -18,8 +18,43 @@ let pokemonList = [
     }
   } */
 
-// My Pokemon List as a forEach() Function:
+// My Pokemon List as a forEach() Function
   function myPokemonList(pokemon) {
     console.log(pokemon.name + ',' + ' height:' + pokemon.height + ', ' + 'type: ' + pokemon.type);
   }
   pokemonList.forEach(myPokemonList);
+
+// IIFE for Pokemon List
+  (function() {
+    let pokemonList = [
+    {name: "Bulbasaur", height: 0.7, type: ['grass', 'poison']},
+    {name: "Nidoking", height: 1.4, type: ['ground', 'poison']},
+    {name: "Onix", height: 8.8, type: ['rock', 'ground']}
+    ];
+  })();
+  console.log(pokemonList);
+
+//Pokemon Repository including added item
+  let pokemonRepository = (function () {
+  let pokemonList = [
+  {name: "Bulbasaur", height: 0.7, type: ['grass', 'poison']},
+  {name: "Nidoking", height: 1.4, type: ['ground', 'poison']},
+  {name: "Onix", height: 8.8, type: ['rock', 'ground']}
+  ];
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+pokemonRepository.add({ name: 'Glumanda' });
+console.log(pokemonRepository.getAll());
