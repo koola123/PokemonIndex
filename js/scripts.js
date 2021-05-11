@@ -1,28 +1,3 @@
-// Defined three objects as pokemon in an Array
-
-let pokemonList = [
-  {name: "Bulbasaur", height: 0.7, type: ['grass', 'poison']},
-  {name: "Nidoking", height: 1.4, type: ['ground', 'poison']},
-  {name: "Onix", height: 8.8, type: ['rock', 'ground']}
-  ];
-
-// Loop iterates over each item and prints biggest pokemon to the console
-
-/* for (let i=0; i<pokemonList.length; i++) {
-    if (pokemonList[i].height <8.8) {
-      document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + "</p>");
-      console.log(pokemonList[i]);
-    }else {
-      document.write("<p>" + pokemonList[i].name + ' (height: ' + pokemonList[i].height + ') ' + " - Wow, that's big!" + "</p>");
-      console.log(pokemonList[i]);
-    }
-  } */
-
-// My Pokemon List as a forEach() Function
-  function myPokemonList(pokemon) {
-    console.log(pokemon.name + ',' + ' height:' + pokemon.height + ', ' + 'type: ' + pokemon.type);
-  }
-  pokemonList.forEach(myPokemonList);
 
 // IIFE for Pokemon List
   (function() {
@@ -32,29 +7,42 @@ let pokemonList = [
     {name: "Onix", height: 8.8, type: ['rock', 'ground']}
     ];
   })();
-  console.log(pokemonList);
 
-//Pokemon Repository including added item
-  let pokemonRepository = (function () {
-  let pokemonList = [
-  {name: "Bulbasaur", height: 0.7, type: ['grass', 'poison']},
-  {name: "Nidoking", height: 1.4, type: ['ground', 'poison']},
-  {name: "Onix", height: 8.8, type: ['rock', 'ground']}
-  ];
 
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
+// Pokemon Repository
+    let pokemonRepository = (function () {
+    let pokemonList = [
+    {
+      name: 'Bulbasaur',
+      height: 0.7,
+      type: ['grass', 'poison']
+    },
+    {
+      name: 'Nidoking',
+      height: 1.4,
+      type: ['ground', 'poison']
+    },
+    {
+      name: 'Onix',
+      height: 8.8,
+      type: ['rock', 'ground']
+    }
+    ];
 
-  function getAll() {
-    return pokemonList;
-  }
+    function getAll() {
+      return pokemonList;
+    }
 
-  return {
-    add: add,
-    getAll: getAll
-  };
-})();
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
 
-pokemonRepository.add({ name: 'Glumanda' });
-console.log(pokemonRepository.getAll());
+    return {
+      getAll: getAll,
+      add: add
+    };
+  })();
+
+
+pokemonRepository.add({ name:'Charmander', height: 2.0, type: ['fire']});
+pokemonRepository.getAll();
