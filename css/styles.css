@@ -1,6 +1,6 @@
 body {
-  background-color: #fffbde;
-  font-family: 'Bangers', sans-serif;
+  background-color: #FF0;
+  font-family: 'Cookies', sans-serif;
   font-weight:#700;
   font-size: 18px;
   line height: 1.6;
@@ -32,4 +32,28 @@ h3 {
 img.page-header_item {
   width: 10px;
   font-size: 10px;
+}
+
+.button-class {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 5px solid #FF6347;
+}
+
+@media all and (min-width: 500px) and (max-width: 500px) {
+  body {
+    color: #0000FF;
+  }
 }
