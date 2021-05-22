@@ -11,9 +11,7 @@ let pokemonRepository = (function () {
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
-      'name' in pokemon &&
-      'height' in pokemon &&
-      'types' in pokemon
+      'name' in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
@@ -39,7 +37,7 @@ let pokemonRepository = (function () {
     });
   }
 
-//fetch function
+//fetch API function
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -88,7 +86,7 @@ let pokemonRepository = (function () {
 // function for added new pokemon
 pokemonRepository.add({ name: 'Charmander', height: 2.0, type: ['fire'] });
 
-// console.log(pokemonRepository.getAll());
+console.log(pokemonRepository.getAll());
 
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function (pokemon) {
