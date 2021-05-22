@@ -11,13 +11,20 @@ let pokemonRepository = (function () {
   function add(pokemon) {
     if (
       typeof pokemon === 'object' &&
-      'name' in pokemon
+      'name' in pokemon &&
+      'height' in pokemon &&
+      'types' in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
       console.log('pokemon is not correct');
     }
   }
+
+  function getAll() {
+    return repository;
+  }
+
 // forEach loop function block
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
