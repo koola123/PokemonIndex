@@ -80,11 +80,6 @@ let pokemonRepository = (function () {
   };
 })();
 
-// function for added new pokemon
-pokemonRepository.add({ name: 'Charmander', height: 2.0, type: ['fire'] });
-
-//console.log(pokemonRepository.getAll());
-
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
