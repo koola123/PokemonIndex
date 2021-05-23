@@ -12,7 +12,6 @@ let pokemonRepository = (function () {
     if (
       typeof pokemon === 'object' &&
       'name' in pokemon
-      'detailsUrl' in pokemon
     ) {
       pokemonList.push(pokemon);
     } else {
@@ -34,7 +33,7 @@ let pokemonRepository = (function () {
     });
   }
 
-// load list items function
+//fetch API function
   function loadList() {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -51,7 +50,7 @@ let pokemonRepository = (function () {
       console.error(e);
     })
   }
-// load details function
+
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -64,10 +63,10 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
-// show details function
-  function showDetails(item) {
-    loadDetails(item).then(function () {
-      console.log(item);
+
+  function showDetails(pokemon) {
+    loadDetails(pokemon).then(function () {
+      console.log(pokemon);
     });
   }
 
