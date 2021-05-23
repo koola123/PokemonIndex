@@ -19,10 +19,6 @@ let pokemonRepository = (function () {
     }
   }
 
-    {
-    return repository;
-  }
-
 // forEach loop function block
   function addListItem(pokemon) {
     let pokemonList = document.querySelector('.pokemon-list');
