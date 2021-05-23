@@ -33,7 +33,7 @@ let pokemonRepository = (function () {
     });
   }
 
-//fetch API function
+// load list function - API
   function loadList(item) {
     return fetch(apiUrl).then(function (response) {
       return response.json();
@@ -50,7 +50,7 @@ let pokemonRepository = (function () {
       console.error(e);
     })
   }
-
+// load details function - API
   function loadDetails(item) {
     let url = item.detailsUrl;
     return fetch(url).then(function (response) {
@@ -63,7 +63,7 @@ let pokemonRepository = (function () {
       console.error(e);
     });
   }
-
+// show details function - API
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       console.log(pokemon);
@@ -80,6 +80,7 @@ let pokemonRepository = (function () {
   };
 })();
 
+// call functions
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
