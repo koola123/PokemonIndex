@@ -67,12 +67,13 @@ let pokemonRepository = (function () {
 // show details function - API
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function (item) {
-      showModal(item.name, item.height)
+      showModal(item)
     });
   }
 
   // show modal function
-  function showModal(title, text) {
+  function showModal(pokemon) {
+    const { name, height, imageUrl } = pokemon;
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.innerHTML = '';
     let modal = document.createElement('div');
@@ -84,13 +85,13 @@ let pokemonRepository = (function () {
     closeButtonElement.addEventListener('click', hideModal);
 
     let titleElement = document.createElement('h1');
-    titleElement.innerText = title;
+    titleElement.innerText = name;
 
     let contentElement = document.createElement('p');
-    contentElement.innerText = 'Height: ' + text;
+    contentElement.innerText = 'Height: ' + height;
 
     let myImage = document.createElement('img');
-    myImage.src = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
+    myImage.src = imageUrl;
 
     modal.appendChild(closeButtonElement);
     modal.appendChild(titleElement);
