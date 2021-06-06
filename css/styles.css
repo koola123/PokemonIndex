@@ -44,7 +44,7 @@ body {
   display: none;
 }
 
-#modal-container.is-visible {
+#modal-container.show-modal {
   display: block;
   position: fixed;
   padding: 20px;
