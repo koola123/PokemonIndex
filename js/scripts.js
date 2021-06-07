@@ -1,8 +1,7 @@
 // IIFE Pokemon Repository
 let pokemonRepository = (function () {
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=15';
-  let modalContainer = document.querySelector('#modal-container');
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=25';
 
 // Get Pokemons
   function getAll() {
@@ -84,24 +83,22 @@ let pokemonRepository = (function () {
     let modalContainer = $('#modal-container');
     modalContainer.innerHTML = '';
 
-    modalHeader.empty();
-    moodallTitle.empty();
+
+    moodalTitle.empty();
     modalBody.empty();
 
     let pokemonName = $('<h1>' + item.name + '</h1>');
 
     let pokemonImageFront = $('<img class="modal-img" style="width: 50%">');
-    pokemonImageFront.attr("src", item.imageUrlFront);
-    let pokemonImageBack = $('<img class="modal-img" style="width: 50%">');
-    pokemonImageBack.attr("src", item.imageUrlBack);
+    pokemonImageFront.attr('src', item.imageUrl);
 
-    let pokemonHeight = $('<p>' + 'height: ' + item.height + '</p>');
+    let pokemonHeight = $('<p>' + 'Height: ' + item.height + '</p>');
 
-    let pokemonWeight = $('<p>' + 'weight: ' + item.weight + '</p>');
+    let pokemonWeight = $('<p>' + 'Weight: ' + item.weight + '</p>');
 
-    let pokemonType = $('<p>' + 'types: ' + item.types + '<p>');
+    let pokemonType = $('<p>' + 'Types: ' + item.types + '<p>');
 
-    let pokemonAbilities = $('<p>' + 'abilities: ' + item.abilities + '<p>');
+    let pokemonAbilities = $('<p>' + 'Abilities: ' + item.abilities + '<p>');
 
 
     modalBody.append(pokemonName);
@@ -119,12 +116,11 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-    addListItem: addListItem,
-    showModal: showModal,
+    addListItem: addListItem
   };
 })();
 
-// Call Pokemons
+// Populate Pokemon List
 pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function (pokemon) {
     pokemonRepository.addListItem(pokemon);
