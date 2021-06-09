@@ -15,7 +15,9 @@ let pokemonRepository = (function () {
     ) {
       pokemonList.push(pokemon);
     } else {
-      console.log('pokemon is not correct');
+      /* eslint-disable no-console */
+      console.error('Error when validation item', item);
+      /* eslint-enable no-console */
     }
   }
 
