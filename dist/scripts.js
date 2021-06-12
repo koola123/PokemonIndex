@@ -12,7 +12,9 @@ let pokemonRepository = (function() {
     if (typeof pokemon === 'object' && 'name' in pokemon) {
       pokemonList.push(pokemon);
     } else {
-      console.log('pokemon is not correct');
+      /* eslint-disable no-console */
+      console.error('Error when validation item', item);
+      /* eslint-enable no-console */
     }
   }
 

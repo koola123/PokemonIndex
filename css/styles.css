@@ -1,25 +1,30 @@
-/*
-==========
-'Global'
-==========
-*/
-* {
-  margin: 0;
-  padding: 0;
+/* Used Colors as CSS Variables */
+
+:root {
+--primary-background-color: #FF0;
+--list-background-color: #B22222;
+--list-group-item-color: #000;
+--pokemon-modal-color: #000;
+--button-color: #fff;
+--border-color: #000;
 }
 
-html,
-body {
+/*
+==========
+'General'
+==========
+*/
+
+html, body {
   text-align: center;
-  background-color: #FF0;
+  background-color: var(--primary-background-color);
   font-family: 'Cookies', sans-serif;
-  font-weight:#700;
+  font-weight: 400;
   font-size: 18px;
-  line height: 1.6;
 }
 
 hr {
-  border: 2px solid black;
+  border: 2px solid var(--border-color);
 }
 
 ul {
@@ -35,24 +40,43 @@ h1 {
   margin-top: 28px;
   width: 100px;
   height: 100px;
-
 }
+
+/*
+==========
+'Navbar'
+==========
+*/
+
+.navbar-text {
+  text-align: center;
+  color: black;
+}
+
+.navbar-brand {
+  font-size: 35px;
+  padding: 10px;
+  margin-right: 60px;
+}
+
 /*
 ==========
 'List'
 ==========
 */
+
 .list-group {
-  margin: 10px;
+  margin-top: 10px;
   margin-top: 100px;
 }
 
 .list-group-item {
   border: none;
+  line-height: 100px;
   width: 100%;
   padding: 12px 28px;
   font-family: inherit;
-  color: black;
+  color: var(--list-group-item-color);
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -62,7 +86,11 @@ h1 {
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
-  background-color: #FF0000;
+  background-color: var(--list-background-color);
+}
+
+.list-group-item:hover {
+  background: #2E8B57;
 }
 
 /*
@@ -70,12 +98,14 @@ h1 {
 'Buttons'
 ==========
 */
+
 button.btn.btn-block {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
   padding: 2px 4px;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--button-color);
+  letter-spacing: 1px;
 }
 
 /*
@@ -83,10 +113,16 @@ button.btn.btn-block {
 'Modal'
 ==========
 */
+
+.main-container {
+  margin: 100px;
+  margin-top: 750px;
+  margin-bottom: 100px;
+}
+
 #pokemonModal {
-  color: #000;
+  color: var(--pokemon-modal-color);
   font-size: 10px;
-  text-align: center;
 }
 
 .modal-title {
@@ -94,9 +130,5 @@ button.btn.btn-block {
 }
 
 .modal-body {
-  font-size: 20px;
-}
-
-.navbar-text {
-  text-align: center;
+  font-size: 160%;
 }
