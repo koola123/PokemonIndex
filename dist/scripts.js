@@ -1,103 +1,121 @@
 let pokemonRepository = (function() {
-  let t = [],
-    e = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
-  function n(e) {
-    'object' == typeof e && 'name' in e
-      ? t.push(e)
-      : console.error('Error when validation item', item);
+  let e = [],
+    t = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  function n(t) {
+    'object' == typeof t && 'name' in t
+      ? e.push(t)
+      : console.log('pokemon is not correct');
   }
-  function o(t) {
-    pokemonRepository.loadDetails(t).then(function() {
-      let e = $('.modal-body'),
-        n = $('.modal-title');
-      n.empty(), e.empty();
-      let o = $('<h1>' + t.name + '</h1>'),
-        i = $('<img class="modal-img" style="width: 30%">');
-      i.attr('src', t.imageUrl);
-      let l = $('<p>Height: ' + t.height + ' []-- Pokémon units </p>'),
-        a = document.createElement('p');
-      a.innerText = 'Weight: ' + t.weight + ' []-- Pokémon units ';
-      let r = document.createElement('p'),
-        c = 'Types: ';
-      t.types.forEach(function(t) {
-        c += t.type.name + '** ';
-      });
-      let s = document.createElement('p'),
-        p = 'Abilities: ';
-      t.abilities.forEach(function(t) {
-        p += t.ability.name + '** ';
-      }),
-        (r.innerHTML = c),
-        (s.innerHTML = p),
-        n.append(o),
-        e.append(i),
-        e.append(l),
-        e.append(a),
-        e.append(r),
-        e.append(s),
-        $('#pokemonModal').modal('toggle');
+  function o(e) {
+    pokemonRepository.loadDetails(e).then(function() {
+      !(function(e) {
+        let t = document.querySelector('.modal-title'),
+          n = document.querySelector('.modal-body');
+        (t.innerHTML = ' '), (n.innerHTML = ' ');
+        let o = document.createElement('h1');
+        o.innerText = i(e.name);
+        let r = document.createElement('img');
+        r.setAttribute('src', e.imageUrlFront);
+        let l = document.createElement('img');
+        l.setAttribute('src', e.imageUrlBack);
+        let a = document.createElement('p');
+        a.innerHTML = '<strong>Height: </strong>' + e.height + ' meter';
+        let c = document.createElement('p');
+        c.innerHTML = '<strong>Weight: </strong>' + e.weight + ' kg';
+        let s = document.createElement('p');
+        s.innerHTML = '<strong>Type: </strong>' + e.types;
+        let u = document.createElement('p');
+        (u.innerHTML = '<strong>Abilities: </strong>' + e.abilities),
+          t.append(o),
+          n.append(r),
+          n.append(l),
+          n.append(a),
+          n.append(c),
+          n.append(s),
+          n.append(u);
+      })(e);
     });
+  }
+  function i(e) {
+    return 'string' != typeof e ? '' : e.charAt(0).toUpperCase() + e.slice(1);
   }
   return {
     add: n,
     getAll: function() {
-      return t;
+      return e;
     },
-    addListItem: function(t) {
-      let e = document.querySelector('.list-group'),
-        n = document.createElement('li');
-      n.classList.add('list-group-item', 'list-group-item-action');
-      let i = document.createElement('button');
-      (i.innerText = t.name),
-        i.classList.add('btn'),
-        i.classList.add('btn-block'),
-        i.setAttribute('data-target', '#pokemonModal', 'data-toggle', 'modal'),
-        n.appendChild(i),
-        e.appendChild(n),
-        i.addEventListener('click', function() {
-          o(t);
+    addListItem: function(e) {
+      let t = document.querySelector('.list-group'),
+        n = document.createElement('li'),
+        r = document.createElement('button');
+      (r.innerText = i(e.name)),
+        r.classList.add('button'),
+        r.setAttribute('data-target', '#pokemonModal'),
+        r.setAttribute('data-toggle', 'modal'),
+        n.appendChild(r),
+        t.appendChild(n),
+        r.addEventListener('click', function() {
+          o(e);
         });
     },
-    loadList: function(t) {
-      return fetch(e)
-        .then(function(t) {
-          return t.json();
-        })
-        .then(function(t) {
-          t.results.forEach(function(t) {
-            let e = { name: t.name, detailsUrl: t.url };
-            n(e), console.log(e);
-          });
-        })
-        .catch(function(t) {
-          console.error(t);
-        });
-    },
-    loadDetails: function(t) {
-      let e = t.detailsUrl;
-      return fetch(e)
-        .then(function(t) {
-          return t.json();
+    showDetails: o,
+    loadList: function() {
+      return fetch(t)
+        .then(function(e) {
+          return e.json();
         })
         .then(function(e) {
-          return (
-            (t.imageUrl = e.sprites.front_default),
-            (t.height = e.height),
-            (t.weight = e.weight),
-            (t.types = [...e.types]),
-            (t.abilities = [...e.abilities]),
-            item
-          );
+          e.results.forEach(function(e) {
+            n({ name: e.name, detailsUrl: e.url });
+          });
         })
-        .catch(function(t) {
-          console.error(t);
+        .catch(function(e) {
+          console.error(e);
         });
     },
-    showDetails: o
+    loadDetails: function(e) {
+      let t = e.detailsUrl;
+      return fetch(t)
+        .then(function(e) {
+          return e.json();
+        })
+        .then(function(t) {
+          (e.imageUrlFront = t.sprites.front_default),
+            (e.imageUrlBack = t.sprites.back_default),
+            (e.height = t.height),
+            (e.weight = t.weight),
+            (e.types = []);
+          for (var n = 0; n < t.types.length; n++)
+            e.types.push(' ' + t.types[n].type.name);
+          for (e.abilities = [], n = 0; n < t.abilities.length; n++)
+            e.abilities.push(' ' + t.abilities[n].ability.name);
+        })
+        .catch(function(e) {
+          console.error(e);
+        });
+    }
   };
 })();
+function searchFunction() {
+  let e, t, n, o, i, r, l;
+  for (
+    t = (e = document.querySelector('.searchbar')).value.toUpperCase(),
+      o = (n = document.querySelector('.list-group')).getElementsByTagName(
+        'li'
+      ),
+      r = 0;
+    r < o.length;
+    r++
+  )
+    (l =
+      (i = o[r].getElementsByTagName('button')[0]).textContent || i.innerText)
+      .toUpperCase()
+      .indexOf(t) > -1
+      ? (o[r].style.display = '')
+      : (o[r].style.display = 'none');
+}
 pokemonRepository.loadList().then(function() {
-  pokemonRepository.getAll().forEach(function(t) {
-    pokemonRepository.addListItem(t);
+  pokemonRepository.getAll().forEach(function(e) {
+    pokemonRepository.addListItem(e);
   });
 });
