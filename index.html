@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemon Index</title>
+    <title>Pokédex JavaScript App</title>
     <link
       rel="shortcut icon"
       href="img/favicon-32x32.png"
@@ -18,31 +18,109 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
   <body>
-    <header>
-      <nav
-        class="navbar navbar-expand-lg navbar-dark justify-content-between fixed-top"
-        style="background-color: #2E8B57;"
-      >
-        <div class="container-fluid">
-          <a href="index.html" class="navbar-brand">Koola's Pokédex<br /> </a>
-          <img src="img/Blastoise.png" alt="image" />
-          <img src="img/Pokeball_legendary.png" alt="image" />
-          <form class="d-flex">
-            <input
-              class="searchbar"
-              onkeyup="searchFunction()"
-              type="search"
-              size="23"
-              placeholder="Search for Pokémon ..."
-              aria-label="Search"
-            />
-          </form>
-        </div>
-      </nav>
-    </header>
+    <nav
+      class="navbar fixed-top navbar-dark"
+      style="background-color: #2E8B57;"
+    >
+      <div class="container-fluid">
+        <a href="index.html" class="navbar-brand"
+          ><strong>Welcome to Koola's </strong><br />
+          Pokémon Index!</a
+        >
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              style="color: yellow; font-size: 28px;"
+              aria-current="page"
+              href="index.html"
+              ><span class="sr-only"></span>Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              style="color: purple; font-size: 25px"
+              href="index.html"
+              >Our Story</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              style="color: pink; font-size: 25px"
+              href="index.html"
+              >Contact</a
+            >
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search Pokémon ..."
+            aria-label="Search"
+          />
+        </form>
+      </div>
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+      <img
+        class="image"
+        src="img/pikachu.png"
+        alt="image of pokemon character pikachu"
+      />
+    </nav>
     <main>
       <div class="main-container">
-        <ul class="list-group"></ul>
+        <ul
+          class="list-group"
+          data-toggle="modal"
+          data-target="#pokemonModal"
+        ></ul>
         <div
           class="modal fade"
           id="pokemonModal"
