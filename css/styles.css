@@ -2,7 +2,7 @@
 
 /* Used Colors as CSS Variables */
 :root {
---primary-background-color: #FF0;
+--primary-background-color: #000;
 }
 
 /*
@@ -16,7 +16,7 @@ html, body {
   background-color: var(--primary-background-color);
   font-family: 'Londrina Shadow', cursive;
   font-weight: 400;
-  font-size: 35px;
+  font-size: 20px;
 }
 
 body:before {
@@ -44,6 +44,7 @@ ul {
   font-size: 55px;
   padding: 10px;
   margin-right: 100px;
+  background: #000;
 }
 
 /*
@@ -58,7 +59,7 @@ ul {
   line-height: 100px;
   width: 100%;
   padding: 12px 28px;
-  background-color: #B22222;
+  background-color: #000;
 }
 
 /*
@@ -73,10 +74,10 @@ ul {
   font-weight: bold;
   padding: 2px 4px;
   text-transform: uppercase;
-  color: #fff;
+  color: gold;
   letter-spacing: 2px;
-  background-color: #2E8B57;
-  border-color: #FFB6C1;
+  background-color: white;
+  border-color: #000;
 
 }
 
